@@ -13,7 +13,7 @@ public class Updater() {
                     Console.WriteLine("New update detected! Extracting....");
                     try {
                         zipArchive.ExtractToDirectory(gamePath,true);
-                        File.Delete("./PatchFiles/" + patchFile);
+                        File.Delete(gamePath + "/PatchFiles/" + patchFile);
                         Console.WriteLine("Extracted successfully");
                     } catch (Exception e) {
                         Console.ForegroundColor = System.ConsoleColor.Red;
@@ -30,7 +30,7 @@ public class Updater() {
                     Console.WriteLine("New update detected! Extracting....");
                     try {
                         zipArchive.ExtractToDirectory(gamePath,true);
-                        File.Delete(gamePath + "/PatchFiles/" + patchFile);
+                        File.Delete("./PatchFiles/" + patchFile);
                         Console.WriteLine("Extracted successfully");
                     } catch (Exception e) {
                         Console.ForegroundColor = System.ConsoleColor.Red;
