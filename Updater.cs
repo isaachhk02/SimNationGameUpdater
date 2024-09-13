@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO.Compression;
 
 namespace simnationupdater;
@@ -15,6 +16,7 @@ public class Updater() {
                         zipArchive.ExtractToDirectory(gamePath,true);
                         File.Delete(gamePath + "/PatchFiles/" + patchFile);
                         Console.WriteLine("Extracted successfully");
+                        Process.Start(gamePath + "\\FreeSO.exe","-dx");
                     } catch (Exception e) {
                         Console.ForegroundColor = System.ConsoleColor.Red;
                         Console.WriteLine(e.Message);
@@ -32,6 +34,7 @@ public class Updater() {
                         zipArchive.ExtractToDirectory(gamePath,true);
                         File.Delete("./PatchFiles/" + patchFile);
                         Console.WriteLine("Extracted successfully");
+                        Process.Start(gamePath + "/FreeSO.exe","-dx");
                     } catch (Exception e) {
                         Console.ForegroundColor = System.ConsoleColor.Red;
                         Console.WriteLine(e.Message);
@@ -50,6 +53,7 @@ public class Updater() {
                         zipArchive.ExtractToDirectory(gamePath,true);
                         File.Delete(gamePath + "/PatchFiles/" + patchFile);
                         Console.WriteLine("Extracted successfully");
+                        Process.Start("mono", gamePath + "/FreeSO.exe");
                     }
                     catch (Exception ex) {
                         Console.WriteLine(ex.Message);
@@ -75,6 +79,7 @@ public class Updater() {
                         zipArchive.ExtractToDirectory(gamePath,true);
                         File.Delete(gamePath + "/PatchFiles/" + patchFile);
                         Console.WriteLine("Extracted successfully");
+                         Process.Start("Library/Frameworks/Mono.framework/Versions/Current/Commands/mono", gamePath + "/FreeSO.exe");
                     }
                     catch (Exception ex) {
                         Console.WriteLine(ex.Message);
